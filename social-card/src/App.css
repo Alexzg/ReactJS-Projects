@@ -1,0 +1,91 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+/* ------------------------------- */
+.mainContainer {
+    width: 50%;
+    margin: auto;
+    min-width: 300px;
+}
+
+.cardHeading {
+    margin-top: 10px;
+}
+.cardHeading h3 {
+    width: 60%;
+    margin: auto;
+}
+.cardHeading h4 {
+    text-decoration: underline;
+    font-weight: bold;
+    margin: auto;
+    margin-top: 0.5em;
+}
+.cardHeading h5 {
+    color: grey;
+    font-size: 90%;
+}
+
+.cardMain img {
+    width: 45%;
+}
+.cardMain .title {
+    text-align: left;
+    font-weight: bold;
+    font-size: 15px;
+    margin: auto;
+}
+.cardMain .text {
+    text-align: left;
+    font-weight: bold;
+    color: grey;
+}
+
+.logo {
+    width: 3em;
+    height: 3em;
+    border:1px solid lightgrey;
+    border-radius: 50%;
+    margin: 0.5em;
+}
+
+.displayBorder {
+    border: 1px solid blue;
+}
+
+.btn {
+    background-color: transparent;
+    color: rgb(48, 172, 199);
+}
+.btn:hover {
+    border: 1px solid orange;
+    color: orange;
+}
+.btn:active {
+    color: red;
+}
