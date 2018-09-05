@@ -1,0 +1,23 @@
+{
+	"experiment": [
+       {"id":"test1",
+       "title":"WORMHOLE COLLISION", 
+       "researcher":["John Eduard", "Step Ston"], 
+       "description":"Experimentation of cases on collision of big wormholes"},
+       {"id":"test2", 
+       "title":"SUN UTILIZER", 
+       "researcher ":["John Fisher", "Mary Poppeans", "Indian Johns", "Lea Seaside"], 
+       "description":"Prototype design for energy utilizing"},
+       {"id":"test3", 
+       "title":"GREEN DAY", 
+       "researcher ":["Jumanji Max-Well"], 
+       "description":"Testing nature manipulation on tech days"}
+       ],
+	"personnel": [
+       {"id":"person1", "name":"John", "surname":"Eduard", "status":"Tester", "email":""},
+       {"id":"person2", "name":"Lea", "surname":"Seaside", "status":"Project Leader", "email":""},
+       {"id":"person3", "name":"John", "surname":" Fisher", "status":"Policy Maker", "email":""},
+       {"id":"person4", "name":"Mary", "surname":"Poppeans", "status":"Student", "email":""},
+       {"id":"person5", "name":"Jumanji", "surname":"Max-Well", "status":"Reviewer", "email":""}
+       ]
+}
