@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { ReportPreview } from './reportPreview';
-import { InputTextVerify } from './inputTextVerify.jsx';
+import { verifiedUserID } from '../submittedUserID.json'; //Simulates external file from backend for -> User Verification Status
+import { ReportPreview } from './reportPreview.jsx';
+import { InputTextID } from './inputTextID.jsx';
 
 export class ReportEdit extends Component {
     constructor(props) {
@@ -8,23 +9,19 @@ export class ReportEdit extends Component {
         this.state = {
             userComment: "",
             userId: "",
-            userIdVerified: false,
+            userIdVerified: (verifiedUserID==="true"),
             reportType: "none",
             reportTitle: "report title",
             reportComments: "comments",
             reportDataFileName: "data.json",
             reportId: "125#88#n8"
         }
-        this.handleUserInput = this.handleUserInput.bind(this);
+        this.handleUserID = this.handleUserID.bind(this);
     }
 
-    handleUserInput(event, key, verified) {
+    handleUserID(event, key) {
         if (key==="inputId") {
             this.setState({ userId: event.target.value });
-            this.setState({ userComment: String(verified) });
-        }
-        if (key==="comment") {
-            this.setState({ userComment: event.target.value });
         }
     }
 
@@ -33,23 +30,20 @@ export class ReportEdit extends Component {
             <div className="row">
                 <form className="reportInputsContainer">
                     <h2>Please fill in the fields</h2>
-                    <InputTextVerify
+                    <InputTextID
                         Key="inputId"
                         Label="Your personal ID number:*"
                         Placeholder="example: person1"
                         Smalltext="*Required"
-                        OnChange={this.handleUserInput}
-                        OnClick={this.handleUserInput}
-                        Value={this.state.userId}/>
+                        OnChange={this.handleUserID}
+                        OnClick={this.handleUserID}
+                        Value={this.state.userId}
+                        UserIdVerified={this.state.userIdVerified}/>
+
                     <h2>{this.state.userId}</h2>
-                    <h2>{this.state.userComment}</h2>
-                    <InputTextVerify
-                        Key="comment"
-                        Label="Your personal Comment:*"
-                        Placeholder="example: mpla mpla"
-                        Smalltext="*Required"
-                        OnChange={this.handleUserInput}
-                        OnClick={this.handleUserInput}/>
+
+                    <h2>{String(this.state.userIdVerified)}</h2>
+                    <input id="input" type="text" className="form-control" aria-describedby="Help"/>
                 </form>
                 <ReportPreview />
             </div>
