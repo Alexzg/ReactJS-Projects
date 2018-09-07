@@ -1,31 +1,27 @@
 import React, { Component } from 'react';
-import { InputText } from './inputText.jsx';
-import { personnel } from '../database.json';
+import { ReportPreview } from './reportPreview';
+import { InputTextVerify } from './inputTextVerify.jsx';
 
 export class ReportEdit extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            userId: "",
             userComment: "",
-            userIdVerified: false
+            userId: "",
+            userIdVerified: false,
+            reportType: "none",
+            reportTitle: "report title",
+            reportComments: "comments",
+            reportDataFileName: "data.json",
+            reportId: "125#88#n8"
         }
         this.handleUserInput = this.handleUserInput.bind(this);
     }
 
-    handleUserInput(event, key) {
+    handleUserInput(event, key, verified) {
         if (key==="inputId") {
-            let userIdVerified;
-            let databaseId = (personnel
-                            .map(person => person.id===this.state.userId)
-                            .reduce(id => id===true));
-            if (databaseId) {
-                userIdVerified = true;
-            } else {
-                userIdVerified = false;
-            }
-            this.setState({ userIdVerified : userIdVerified })
             this.setState({ userId: event.target.value });
+            this.setState({ userComment: String(verified) });
         }
         if (key==="comment") {
             this.setState({ userComment: event.target.value });
@@ -35,18 +31,19 @@ export class ReportEdit extends Component {
     render() {
         return(
             <div className="row">
-                <form className="reportInputsContainer"
-                    onBlur={event => this.props.UpdateReportState(event, this.state)}>
+                <form className="reportInputsContainer">
                     <h2>Please fill in the fields</h2>
-                    <InputText
+                    <InputTextVerify
                         Key="inputId"
                         Label="Your personal ID number:*"
                         Placeholder="example: person1"
                         Smalltext="*Required"
                         OnChange={this.handleUserInput}
                         OnClick={this.handleUserInput}
-                        UserIdVerified={this.state.userIdVerified}/>
-                    <InputText
+                        Value={this.state.userId}/>
+                    <h2>{this.state.userId}</h2>
+                    <h2>{this.state.userComment}</h2>
+                    <InputTextVerify
                         Key="comment"
                         Label="Your personal Comment:*"
                         Placeholder="example: mpla mpla"
@@ -54,9 +51,7 @@ export class ReportEdit extends Component {
                         OnChange={this.handleUserInput}
                         OnClick={this.handleUserInput}/>
                 </form>
-                <div className="reportPreviewContainer displayContainer">
-                    <h2>Report Preview</h2>
-                </div>
+                <ReportPreview />
             </div>
         );
     }

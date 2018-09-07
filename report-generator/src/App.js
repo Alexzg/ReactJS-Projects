@@ -9,21 +9,12 @@ class App extends Component {
         super(props);
         this.state = {
             reportSubmitted: false,
-            userId: "",
-            userIdVerified: false,
-            reportType: "none",
-            reportTitle: "report title",
-            reportComments: "comments",
-            reportDataFileName: "data.json",
-            reportId: "125#88#n8"
         }
-        this.updateState = this.updateState.bind(this);
     }
 
     choosePage() {
         let reportEdit =
-        <ReportEdit
-            UpdateReportState={this.updateState}/>;
+        <ReportEdit/>;
         let reportSubmitted =
         <ReportSubmitted/>;
         let page = (this.state.reportSubmitted===false ? reportEdit : reportSubmitted);
@@ -31,14 +22,6 @@ class App extends Component {
 
     }
 
-    updateState(event, reportEditState) {
-        let userId = reportEditState.userId;
-        let userIdVerified = reportEditState.userIdVerified;
-        this.setState({
-            userId: userId,
-            userIdVerified: userIdVerified
-        });
-    }
 
     render() {
         return (
@@ -48,7 +31,6 @@ class App extends Component {
                     <h1 className="App-title">Report Generator</h1>
                 </header>
                 {this.choosePage()}
-                <h2>{this.state.userId} : {String(this.state.userIdVerified)}</h2>
             </div>
         );
     }
