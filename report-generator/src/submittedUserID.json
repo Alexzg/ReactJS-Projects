@@ -1,3 +1,7 @@
-{
-	"verifiedUserID": "false"
+{	
+	"user":{
+	"name": "John",
+	"surname": "Eduard",
+	"verifiedUserID": "true"
+	}
 }
