@@ -1,3 +1,26 @@
+## app overview:
+Report Generator
++ Inputs for data/details
++ Report Preview
+
+### Basic Inputs:
+- User ID (if correct, unlocks the Hidden sub-forms )
+- Report Type (choose which sub-form to display)
+### Hidden sub-forms:
+- Results
+- Issue / Proposal
+#### sub-Form "Result" Inputs
++ Project ID (if exists, unlocks Submit Button)
++ File upload
++ Comments
++ Submit button
+#### sub-Form "Issue / Proposal" Inputs
++ Project ID (optional)
++ Report Title
++ Details
++ Submit button
+## All ID checks are made using pre-made local .json files (no backend is present)
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
