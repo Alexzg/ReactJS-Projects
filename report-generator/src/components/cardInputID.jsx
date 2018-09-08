@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { SpanVerificationGraphic } from './spanVerificationGraphic.jsx';
 
-export class InputTextID extends Component {
+export class CardInputID extends Component {
     render() {
         return(
             <div className="form-group">
@@ -9,8 +9,8 @@ export class InputTextID extends Component {
                     <div className="input-group mb-3">
                         <SpanVerificationGraphic
                             IdVerified={this.props.IdVerified}
-                            VerifiedText="Verified ID"
-                            NotVerifiedText="Verify ID"/>
+                            VerifiedText="ID Correct"
+                            NotVerifiedText="ID Incorrect"/>
                         <input id="input" type="text" className="form-control" aria-describedby="Help" placeholder={this.props.Placeholder}
                             onChange={event => this.props.OnChange(event, this.props.Key)}
                             value={this.props.Value}/>

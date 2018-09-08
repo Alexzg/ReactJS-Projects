@@ -3,12 +3,12 @@ import React from 'react';
 export const SpanVerificationGraphic = function(props) {
     let spanGraphicClass="";
     let spanGraphicText="";
-    if (props.userIdVerified) {
+    if (props.IdVerified) {
         spanGraphicClass= "btn btn-outline-success";
-        spanGraphicText= "Verified ID";
+        spanGraphicText= props.VerifiedText ;
     } else {
         spanGraphicClass= "btn btn-warning";
-        spanGraphicText= "Verify ID";
+        spanGraphicText= props.NotVerifiedText;
     }
     return(
         <div className="input-group-prepend">
