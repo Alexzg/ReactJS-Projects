@@ -28,6 +28,7 @@ export class ReportEdit extends Component {
             projectDesctiption: project.description,
             projectResultFile: null,
             reportTitle: "",
+            reportTitleExist: false,
             reportComments: "",
             reportId: "125#88#n8"
         }
@@ -55,7 +56,17 @@ export class ReportEdit extends Component {
             this.setState({ reportComments: event.target.value });
         }
         if (key==="inputTitle") {
-            this.setState({ reportTitle: event.target.value });
+            if (event.target.value!=="") {
+                this.setState({
+                    reportTitle: event.target.value,
+                    reportTitleExist: true
+                });
+            } else {
+                this.setState({
+                    reportTitle: event.target.value,
+                    reportTitleExist: false
+                });
+            }
         }
     }
 
@@ -139,7 +150,7 @@ export class ReportEdit extends Component {
                         OnChange={this.handleUserInput}
                         Value={this.state.reportComments}/>
                     <ButtonSubmitForm
-                        IdVerified={true}/>
+                        IdVerified={this.state.reportTitleExist}/>
                 </div>
         );}
         return(value);
