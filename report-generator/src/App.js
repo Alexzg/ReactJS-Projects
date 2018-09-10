@@ -10,11 +10,17 @@ class App extends Component {
         this.state = {
             reportSubmitted: false,
         }
+        this.submitHandler = this.submitHandler.bind(this);
+    }
+
+    submitHandler() {
+        this.setState({ reportSubmitted: true });
     }
 
     choosePage() {
         let reportEdit =
-        <ReportEdit/>;
+        <ReportEdit
+            Submit={this.submitHandler}/>;
         let reportSubmitted =
         <ReportSubmitted/>;
         let page = (this.state.reportSubmitted===false ? reportEdit : reportSubmitted);

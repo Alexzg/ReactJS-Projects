@@ -9,7 +9,8 @@ import { CardInputComments } from './cardInputComments.jsx';
 import { ButtonSubmitForm } from './buttonSubmitForm.jsx';
 import { CardInputID } from './cardInputID.jsx';
 import { CardResultFIleInput } from './cardResultFileInput.jsx';
-import { CardInputText } from './cardInputText.jsx'
+import { CardInputText } from './cardInputText.jsx';
+import { SubmitQuestionMessage } from './submitQuestionMessage.jsx';
 
 export class ReportEdit extends Component {
     constructor(props) {
@@ -31,6 +32,7 @@ export class ReportEdit extends Component {
             reportId: "125#88#n8"
         }
         this.handleUserInput = this.handleUserInput.bind(this);
+        this.submitHandler = this.submitHandler.bind(this);
     }
 
     handleUserInput(event, key) {
@@ -52,7 +54,7 @@ export class ReportEdit extends Component {
         if (key==="inputComments") {
             this.setState({ reportComments: event.target.value });
         }
-        if (key==="inputText") {
+        if (key==="inputTitle") {
             this.setState({ reportTitle: event.target.value });
         }
     }
@@ -75,6 +77,7 @@ export class ReportEdit extends Component {
                     Key="reportType"
                     Label="Please chooce Report Type"
                     OnClick={this.handleUserInput}
+                    Value={this.state.reportType}
                     Option1="Results"
                     Option2="Issue"
                     Option3="Proposal"/>
@@ -123,7 +126,7 @@ export class ReportEdit extends Component {
                         Value={this.state.projectID}
                         IdVerified={this.state.projectExist}/>
                     <CardInputText
-                        Key="inputText"
+                        Key="inputTitle"
                         Label="Give a title to your report*"
                         Placeholder="e.g. Report on behavioral issues"
                         Smalltext="*Required"
@@ -136,28 +139,34 @@ export class ReportEdit extends Component {
                         OnChange={this.handleUserInput}
                         Value={this.state.reportComments}/>
                     <ButtonSubmitForm
-                        IdVerified={this.state.projectExist}/>
+                        IdVerified={true}/>
                 </div>
         );}
         return(value);
     }
 
-    submitHandler(event) {
-        event.preventDefault();
+    submitHandler(event, key) {
+        if (key==="submit") {
+            this.props.Submit();
+        }
+        event.preventDefault(); //stops default submit behavior -> "Enter" does nothing
     }
 
     render() {
         return(
-            <div className="row">
-                <form className="reportInputsContainer" onSubmit={this.submitHandler}>
-                    <h2>Please fill in the fields</h2>
-                    {this.displayReportMainInput()}
-                    <h3>Report Type: {this.state.reportType}</h3>
-                    {this.displayReportTypeInput()}
-
-                    <h2>TEst: {String(this.state.reportTitle)}</h2>
-                </form>
-                <ReportPreview />
+            <div>
+                <div className="row">
+                    <form className="reportInputsContainer" onSubmit={this.submitHandler}>
+                        <h2>Please fill in the fields</h2>
+                        {this.displayReportMainInput()}
+                        <h3>Report Type: {this.state.reportType}</h3>
+                        {this.displayReportTypeInput()}
+                    </form>
+                    <ReportPreview />
+                </div>
+                <SubmitQuestionMessage
+                    Key="submit"
+                    OnClick={this.submitHandler}/>
             </div>
         );
     }

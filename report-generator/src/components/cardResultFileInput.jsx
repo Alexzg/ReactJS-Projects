@@ -9,6 +9,7 @@ export class CardResultFIleInput extends Component {
                     <input id="file-input" type="file" className="form-control-file"
                         onChange={event => this.props.OnChange(event, this.props.Key)}/>
                 </div>
+                <hr/>
             </div>
         );
     }
