@@ -3,6 +3,10 @@ import { SpanVerificationGraphic } from './spanVerificationGraphic.jsx';
 
 export class InputTextID extends Component {
     render() {
+        let smallClass = "form-text text-danger";
+        if (this.props.Value!=="") {
+            smallClass = "form-text text-muted";
+        }
         return(
             <div className="form-group">
                 <label htmlFor="input" className="inputLabel">{this.props.Label}</label>
@@ -15,7 +19,8 @@ export class InputTextID extends Component {
                             onChange={event => this.props.OnChange(event, this.props.Key)}
                             value={this.props.Value}/>
                     </div>
-                <small id="Help" className="form-text text-muted">{this.props.Smalltext}</small>
+                <small id="Help" className={smallClass}>{this.props.Smalltext}</small>
+                <hr/>
             </div>
 
         );

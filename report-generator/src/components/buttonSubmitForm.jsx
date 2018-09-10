@@ -15,8 +15,9 @@ export class ButtonSubmitForm extends Component {
         let cls = this.chooseMode(this.props.IdVerified);
         return(
             <div className="form-group">
-                <button type="submit" className={cls}
-                    >SUBMIT Report</button>
+                <button type="button" className={cls} data-toggle="modal" data-target="#SubmitModal">
+                    SUBMIT Report
+                </button>
             </div>
         );
     }
