@@ -18,7 +18,10 @@ Report Generator
 + Project ID (optional)
 + Report Title
 + Details
-+ Submit button
++ Submit button (Modal is displayed)
+#### Modal
++ Edit (Close Modal)
++ Submit (Display "Submit Success" Page)
 ## All ID checks are made using pre-made local .json files (no backend is present)
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
