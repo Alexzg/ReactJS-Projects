@@ -6,10 +6,10 @@ import { UserWelcome } from './userWelcome.jsx';
 import { InputTextID } from './inputTextID.jsx';
 import { InputReportType } from './inputReportType.jsx';
 import { CardInputComments } from './cardInputComments.jsx';
-import { ButtonSubmitForm } from './buttonSubmitForm.jsx';
 import { CardInputID } from './cardInputID.jsx';
 import { CardResultFIleInput } from './cardResultFileInput.jsx';
 import { CardInputText } from './cardInputText.jsx';
+import { ButtonSubmitForm } from './buttonSubmitForm.jsx';
 import { SubmitQuestionMessage } from './submitQuestionMessage.jsx';
 
 export class ReportEdit extends Component {
@@ -30,7 +30,8 @@ export class ReportEdit extends Component {
             reportTitle: "",
             reportTitleExist: false,
             reportComments: "",
-            reportId: "125#88#n8"
+            reportId: "S@meLoadedC0d3",
+            logoName: 'letter_a.png'
         }
         this.handleUserInput = this.handleUserInput.bind(this);
         this.submitHandler = this.submitHandler.bind(this);
@@ -173,7 +174,8 @@ export class ReportEdit extends Component {
                         <h3>Report Type: {this.state.reportType}</h3>
                         {this.displayReportTypeInput()}
                     </form>
-                    <ReportPreview />
+                    <ReportPreview
+                        State={this.state}/>
                 </div>
                 <SubmitQuestionMessage
                     Key="submit"
