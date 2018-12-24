@@ -1,0 +1,15 @@
+.MenuBtn {
+	background-color: transparent;
+	border: none;
+	color: white;
+}
+
+.MenuBtn:hover {
+	color:orange;
+}
+
+@media (min-width: 499px) {
+	.MenuBtn {
+		display: none;
+	}
+}
