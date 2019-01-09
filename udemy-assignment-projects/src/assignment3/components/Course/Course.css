@@ -1,0 +1,16 @@
+.articles {
+	width: 30%;
+	height: 150px;
+	vertical-align: text-top;
+	display: inline-block;
+	border: 1px solid lightgrey;
+}
+
+@media only screen and (max-width: 700px) {
+	.articles {
+	width: 100%;
+	height: auto;
+	display: block;
+	vertical-align: baseline;
+	}
+}
