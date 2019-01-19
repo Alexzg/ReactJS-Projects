@@ -8,10 +8,10 @@ const burger = (props) => {
 		Object.keys(props.ingredients)
 			.map(ingredient => {
 				return [...Array(props.ingredients[ingredient])]
-				.map((_, i) => {
-					return <BurgerIngredient key={ingredient + i} type={ingredient} />;
+					.map((_, i) => {
+						return <BurgerIngredient key={ingredient + i} type={ingredient} />;
 					})
-			}).reduce((arr, el) => {return arr.concat(el)});
+			}).reduce((arr, el) => {return arr.concat(el)}, []);
 	
 	if (transformedIngredients.length === 0) {
 		transformedIngredients = <p>'Hello! please add ingredients'</p>
